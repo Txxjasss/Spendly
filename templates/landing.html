@@ -24,7 +24,7 @@
         </p>
         <div class="home-hero-actions">
             <a href="{{ url_for('register') }}" class="home-hero-btn">Create free account</a>
-            <a href="#" class="home-hero-btn">See how it works</a>
+            <a href="#" class="home-hero-btn" id="how-it-works-btn">See how it works</a>
         </div>
     </div>
 
@@ -98,4 +98,59 @@
     </div>
 </section>
 
+<div class="video-modal" id="video-modal" aria-hidden="true">
+    <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-label="How Spendly works">
+        <button type="button" class="video-modal-close" id="video-modal-close" aria-label="Close video">&times;</button>
+        <div class="video-modal-frame">
+            {# Placeholder video — replace the data-src URL with the real one #}
+            <iframe id="video-modal-iframe"
+                    data-src="https://www.youtube.com/embed/ysz5S6PUM-U?autoplay=1&rel=0"
+                    title="How Spendly works"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    (function () {
+        var openBtn = document.getElementById('how-it-works-btn');
+        var modal = document.getElementById('video-modal');
+        var closeBtn = document.getElementById('video-modal-close');
+        var iframe = document.getElementById('video-modal-iframe');
+
+        function openModal(e) {
+            e.preventDefault();
+            iframe.src = iframe.dataset.src;          // load + autoplay
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            closeBtn.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            iframe.src = '';                          // unload = video stops
+            openBtn.focus();
+        }
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+
+        // Click on the dark overlay (outside the dialog) closes it
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();
+        });
+
+        // Escape key closes it too
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    })();
+</script>
 {% endblock %}
