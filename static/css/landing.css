@@ -1,0 +1,206 @@
+/* ------------------------------------------------------------------ */
+/* Landing — Hero                                                      */
+/* ------------------------------------------------------------------ */
+
+.home-hero {
+    --hero-green: #3f9670;
+    --hero-green-soft: #e9f5ef;
+    --hero-green-border: #bfe0cf;
+    --hero-window: #f6f5f2;
+    --hero-track: #efede7;
+
+    background: var(--paper-card);
+    padding: 4rem 1rem 4.5rem;
+}
+
+.home-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Badge */
+.home-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: var(--hero-green-soft);
+    color: #2f6f50;
+    border: 1px solid var(--hero-green-border);
+    border-radius: 999px;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.home-hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--hero-green);
+}
+
+/* Title */
+.home-hero-title {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 7vw, 4.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+}
+
+.home-hero-title-accent { color: var(--hero-green); }
+
+/* Subtitle */
+.home-hero-subtitle {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    line-height: 1.7;
+    color: var(--ink-muted);
+    max-width: 540px;
+    margin: 0 auto 2.5rem;
+}
+
+/* Buttons */
+.home-hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+}
+
+.home-hero-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 1rem 2.1rem;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.home-hero-btn:hover { background: var(--ink-soft); }
+
+/* ------------------------------------------------------------------ */
+/* Hero — dashboard preview window                                     */
+/* ------------------------------------------------------------------ */
+
+.home-hero-window {
+    max-width: 880px;
+    margin: 4rem auto 0;
+    background: var(--hero-window);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.5rem;
+}
+
+.home-hero-dots {
+    display: flex;
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
+}
+
+.home-hero-dots .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.dot-red    { background: #e8908e; }
+.dot-yellow { background: #f2c46d; }
+.dot-green  { background: #a9dcc5; }
+
+/* Stat cards */
+.home-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #8a8a8a;
+    margin-bottom: 0.35rem;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+}
+
+.stat-note {
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+}
+
+.stat-note-up   { color: #d9534f; }
+.stat-note-good { color: var(--hero-green); }
+
+/* Category bars */
+.home-hero-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.bar-label {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    text-align: center;
+}
+
+.bar-track {
+    height: 12px;
+    background: var(--hero-track);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.bar-food   { background: #e6a23f; }
+.bar-travel { background: #4d86d6; }
+.bar-bills  { background: #7f72d4; }
+
+/* ------------------------------------------------------------------ */
+/* Hero — responsive                                                   */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 640px) {
+    .home-hero { padding: 3rem 1rem; }
+    .home-hero-window { margin-top: 3rem; padding: 1rem; }
+    .home-hero-stats { grid-template-columns: 1fr; }
+    .home-hero-btn { width: 100%; text-align: center; }
+}
